@@ -70,7 +70,7 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
-        <property name="persistenceUnitName" value="withmate" />
+        <property name="persistenceUnitName" value="rental" />
         <property name="jpaDialect" ref="jpaDialect" />
     </bean>
 
