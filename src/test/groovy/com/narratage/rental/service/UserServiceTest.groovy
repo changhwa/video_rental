@@ -14,6 +14,8 @@ import org.mockito.runners.MockitoJUnitRunner
 
 
 import static org.mockito.Mockito.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 class UserServiceTest {
@@ -67,7 +69,7 @@ class UserServiceTest {
         User user = userService.findByUserId(id)
 
         //then
-        Assert.assertEquals(testUser.name, user.name)
+        assertThat(testUser.name,is(user.name))
     }
 
 
