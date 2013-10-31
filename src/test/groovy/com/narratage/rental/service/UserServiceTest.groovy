@@ -12,7 +12,7 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 
-
+import static org.mockito.BDDMockito.given
 import static org.mockito.Mockito.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -56,7 +56,7 @@ class UserServiceTest {
     public void testAddUserFail(){
 
         //given
-        when(userDAO.save(fUser)).thenReturn(fUser)
+        given(userDAO.save(fUser)).willReturn(fUser)
 
         //when
         userService.addUser(fUser)
@@ -72,7 +72,7 @@ class UserServiceTest {
 
         //given
         Long id = sUser.id
-        when(userDAO.findOne(id)).thenReturn(sUser)
+        given(userDAO.findOne(id)).willReturn(sUser)
 
         //when
         User user = userService.findByUserId(id)
