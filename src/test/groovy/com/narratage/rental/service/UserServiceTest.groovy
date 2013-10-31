@@ -26,34 +26,43 @@ class UserServiceTest {
     @Mock
     UserDAO userDAO
 
+    //성공하는 user
+    User sUser
 
-    User testUser
+    //실패하는 user
+    User fUser
 
     @Before
     public void setUp(){
 
-        testUser = new User()
+        //성공하는 정보
+        sUser = new User()
+        sUser.id = 1L
+        sUser.name = "홍길동"
+        sUser.age = 20
+        sUser.address = "대전광역시"
+        sUser.sex = "1"
+        sUser.content = "테스트 입니다."
+        sUser.phoneNum = "010-1111-1111"
 
-        testUser.id = 1L
-        testUser.name = "홍길동"
-        testUser.age = 20
-        testUser.address = "대전광역시"
-        testUser.sex = "1"
-        testUser.content = "테스트 입니다."
+
+        //실패하는 정보
+        fUser = new User()
+        fUser.id = 2L
+        fUser.sex = "2"
     }
 
     @Test
-    public void addUser(){
+    public void testAddUserFail(){
 
         //given
-        when(userDAO.save(testUser)).thenReturn(testUser)
+        when(userDAO.save(fUser)).thenReturn(fUser)
 
         //when
-        userService.addUser(testUser)
+        userService.addUser(fUser)
 
         //then
-        verify(userDAO).save(testUser)
-
+        verify(userDAO, never()).save(fUser)
 
     }
 
@@ -62,14 +71,14 @@ class UserServiceTest {
     public void findByUserId(){
 
         //given
-        Long id = testUser.id
-        when(userDAO.findOne(id)).thenReturn(testUser)
+        Long id = sUser.id
+        when(userDAO.findOne(id)).thenReturn(sUser)
 
         //when
         User user = userService.findByUserId(id)
 
         //then
-        assertThat(testUser.name,is(user.name))
+        assertThat(sUser.name,is(user.name))
     }
 
 
