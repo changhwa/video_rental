@@ -12,6 +12,7 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 
+import static org.hamcrest.CoreMatchers.not
 import static org.mockito.BDDMockito.given
 import static org.mockito.Mockito.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -79,6 +80,24 @@ class UserServiceTest {
 
         //then
         assertThat(sUser.name,is(user.name))
+    }
+
+    @Test
+    public void findByUserName(){
+
+        List<User> userList = new ArrayList<>()
+        userList.add(sUser)
+
+        //given
+        String name = sUser.name
+        given(userDAO.findByNameLike(name)).willReturn(userList)
+
+        //when
+        List<User> users = userService.findByUserName(name)
+
+        //then
+        assertThat(users.size(), is(1))
+
     }
 
 

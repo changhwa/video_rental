@@ -31,5 +31,15 @@ class UserService {
         user
     }
 
+    /**
+     * 사용자 이름으로 찾기
+     * @param name
+     * @return
+     */
+    List<User> findByUserName(String name){
+        List<User> users = userDAO.findByNameLike(name)
+        users
+    }
+
 
 }
