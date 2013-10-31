@@ -41,5 +41,13 @@ class UserService {
         users
     }
 
+    /**
+     * 사용자정보 삭제
+     * @param id
+     */
+    def deleteUser(Long id){
+        //TODO 사용자 삭제시 확인해야하는 정보가 있는지?
+        userDAO.delete(id)
+    }
 
 }

@@ -100,6 +100,20 @@ class UserServiceTest {
 
     }
 
+    @Test
+    public void deleteUser(){
+
+        //given
+        Long id = sUser.id
+
+        //when
+        userService.deleteUser(id)
+
+        //then
+        verify(userDAO).delete(id)
+
+    }
+
 
 
 
