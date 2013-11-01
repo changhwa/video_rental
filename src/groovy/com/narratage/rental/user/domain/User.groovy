@@ -11,11 +11,11 @@ import javax.persistence.Table
 import javax.validation.constraints.NotNull
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id
 
     @NotNull
@@ -28,6 +28,7 @@ class User {
     String address
 
     @NotNull
+    @Column(name="phone_num")
     String phoneNum
 
     String content
