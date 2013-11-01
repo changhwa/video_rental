@@ -38,7 +38,7 @@ class UserServiceTest {
 
         //성공하는 정보
         sUser = new User()
-        sUser.id = 1L
+        sUser.id = 4L
         sUser.name = "홍길동"
         sUser.age = 20
         sUser.address = "대전광역시"
@@ -49,7 +49,7 @@ class UserServiceTest {
 
         //실패하는 정보
         fUser = new User()
-        fUser.id = 2L
+        fUser.id = 5L
         fUser.sex = "2"
     }
 
