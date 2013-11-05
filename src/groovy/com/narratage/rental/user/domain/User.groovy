@@ -1,9 +1,12 @@
 package com.narratage.rental.user.domain
 
+import org.hibernate.FetchMode
+import org.hibernate.annotations.Fetch
 import org.hibernate.validator.constraints.NotEmpty
 
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -35,7 +38,7 @@ class User {
 
     String content
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     UserGrade gradeId
 
 
