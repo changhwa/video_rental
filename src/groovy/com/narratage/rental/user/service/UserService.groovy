@@ -42,6 +42,16 @@ class UserService {
     }
 
     /**
+     * 사용자 전화번호로 찾기
+     * @param phoneNum
+     * @return
+     */
+    List<User> findByUserPhoneNum(String phoneNum){
+        List<User> users = userDAO.findByPhoneNum(phoneNum)
+        users
+    }
+
+    /**
      * 사용자정보 삭제
      * @param id
      */

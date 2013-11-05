@@ -101,6 +101,26 @@ class UserServiceTest {
     }
 
     @Test
+    public void findByUserPhoneNum(){
+
+        List<User> userList = new ArrayList<>()
+        userList.add(sUser)
+        userList.add(sUser)
+
+        //given
+        String phoneNum = sUser.phoneNum
+        given(userDAO.findByPhoneNum(phoneNum)).willReturn(userList)
+
+        //when
+        List<User> users = userService.findByUserPhoneNum(phoneNum)
+
+        //then
+        assertThat(users.size(), is(2))
+
+    }
+
+
+    @Test
     public void deleteUser(){
 
         //given

@@ -33,4 +33,16 @@ class UserDAOTest {
 
 
     }
+
+    @Test
+    public void findByPhoneNumTest(){
+
+        //given
+        String phoneNum = "010-1111-1111"
+
+        //when
+        List<User> users = userDAO.findByPhoneNum(phoneNum)
+
+        assertThat(users.size(), is(3))
+    }
 }
