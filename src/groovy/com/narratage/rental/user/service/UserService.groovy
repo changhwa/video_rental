@@ -2,6 +2,7 @@ package com.narratage.rental.user.service
 
 import com.narratage.rental.user.dao.UserDAO
 import com.narratage.rental.user.domain.User
+import com.narratage.rental.user.domain.UserGrade
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -10,6 +11,9 @@ class UserService {
 
     @Autowired
     UserDAO userDAO
+
+    @Autowired
+    UserGradeService userGradeService
 
     /**
      * 사용자 등록
@@ -22,6 +26,10 @@ class UserService {
         if (user.phoneNum == null || user.name == null){
             return null
         }
+
+        UserGrade userGrade = userGradeService.getUserGrade(2L)
+        user.gradeId = userGrade
+        userGrade.users.add(user)
 
         userDAO.save(user)
     }

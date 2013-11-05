@@ -4,9 +4,9 @@ import com.narratage.rental.user.dao.UserGradeDAO
 import com.narratage.rental.user.domain.User
 import com.narratage.rental.user.domain.UserGrade
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
-@Service
+@Component
 class UserGradeService {
 
     @Autowired
@@ -17,7 +17,6 @@ class UserGradeService {
      * @return
      */
     public List<User> bestGradeUsers(){
-
         //기본값 설정시 ID = 3 이 우수회원으로 설정
         UserGrade userGrade = userGradeDAO.findOne(3L)
 
@@ -27,6 +26,14 @@ class UserGradeService {
         }
 
         null
+    }
 
+    /**
+     * 등급정보를 가져온다
+     * @param id
+     * @return
+     */
+    public UserGrade getUserGrade(Long id){
+        return userGradeDAO.findOne(id)
     }
 }

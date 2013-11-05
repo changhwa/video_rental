@@ -2,6 +2,7 @@ package com.narratage.rental.dao
 
 import com.narratage.rental.user.dao.UserDAO
 import com.narratage.rental.user.domain.User
+import com.narratage.rental.user.domain.UserGrade
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -43,6 +44,27 @@ class UserDAOTest {
         //when
         List<User> users = userDAO.findByPhoneNum(phoneNum)
 
+        //then
         assertThat(users.size(), is(3))
     }
+
+    @Test
+    public void save(){
+
+        User user = new User()
+        UserGrade userGrade = new UserGrade()
+        userGrade.id = 2L
+
+        user.gradeId = userGrade
+        user.sex = "1"
+        user.address = "test"
+        user.age = 22
+        user.name = "이름"
+        user.content = "테스트"
+        user.phoneNum = "011-1111-1111"
+
+        userDAO.save(user)
+
+    }
+
 }
