@@ -67,4 +67,16 @@ class UserDAOTest {
 
     }
 
+    @Test
+    public void delete(){
+
+        User user = userDAO.findOne(3L)
+
+        userDAO.delete(user)
+        List user2 = userDAO.findAll()
+
+        assertThat(user2.size(), is(3))
+
+    }
+
 }

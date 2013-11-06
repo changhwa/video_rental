@@ -84,7 +84,7 @@ class UserView {
 
     def userListView(){
 
-        println "이름  //  전화번호  // 주소 // 기타 // 등급"
+        println "번호 // 이름 // 전화번호 // 주소 // 기타 // 등급"
         List<User> users = userService.getUserList()
 
         if(users == null){
@@ -94,7 +94,7 @@ class UserView {
         } else {
 
             users.each {user->
-                println user.name + "//" + user.phoneNum + "//" + user.address + "//" + user.content + "//" + user.gradeId.gradeName
+                println user.id + "//" + user.name + "//" + user.phoneNum + "//" + user.address + "//" + user.content + "//" + user.gradeId.gradeName
             }
 
         }
@@ -104,12 +104,24 @@ class UserView {
 
     }
 
+    def userDeleteView(){
+        print "삭제할 사용자 번호를 입력22 : "
+        key = EventUtil.keyEvent()
+        userService.deleteUser(key)
+
+        userListView()
+
+    }
+
 
     private void selectUserMenu(key){
 
         switch (key){
             case 1:
                 userAddView()
+                break
+            case 3:
+                userDeleteView()
                 break
             case 4:
                 userListView()
