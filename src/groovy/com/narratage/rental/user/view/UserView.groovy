@@ -74,8 +74,11 @@ class UserView {
             println "등록에 실패하였습니다"
         } else {
             println "등록하였습니다"
-            key = EventUtil.keyEvent()
         }
+
+        key = EventUtil.keyEvent()
+        mainView()
+
 
     }
 
