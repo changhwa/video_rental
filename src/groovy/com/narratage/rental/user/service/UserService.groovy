@@ -23,7 +23,7 @@ class UserService {
     def addUser (User user){
 
         //TODO 좀 더 효과적인 validation은 불가능할까?
-        if (user.phoneNum == null || user.name == null){
+        if (user.phoneNum == null || user.name == null || user.name == "" || user.phoneNum == ""){
             return null
         }
 
