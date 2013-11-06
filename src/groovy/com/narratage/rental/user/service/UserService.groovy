@@ -40,6 +40,15 @@ class UserService {
     }
 
     /**
+     * 사용자 리스트 조회
+     * @return
+     */
+    List<User> getUserList(){
+        List<User> users = userDAO.findAll()
+        users
+    }
+
+    /**
      * 사용자 이름으로 찾기
      * @param name
      * @return

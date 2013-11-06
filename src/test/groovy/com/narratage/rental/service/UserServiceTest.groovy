@@ -67,6 +67,23 @@ class UserServiceTest {
 
     }
 
+    @Test
+    public void getUserList(){
+
+        List<User> userList = new ArrayList<>()
+        userList.add(sUser)
+
+        //given
+        given(userDAO.findAll()).willReturn(userList)
+
+        //when
+        List<User> users = userService.getUserList()
+
+        //then
+        assertThat(users.size(), is(1))
+    }
+
+
 
     @Test
     public void findByUserId(){

@@ -19,8 +19,9 @@ class UserView {
         println "1. 회원등록"
         println "2. 회원수정"
         println "3. 회원삭제"
-        println "4. 회원검색"
-        println "5. 우수회원보기"
+        println "4. 회원리스트보기"
+        println "5. 회원검색"
+        println "6. 우수회원보기"
         print "입력> "
         key = EventUtil.keyEvent()
         println ""
@@ -78,12 +79,37 @@ class UserView {
 
     }
 
+    def userListView(){
+
+        println "이름  //  전화번호  // 주소 // 기타 // 등급"
+        List<User> users = userService.getUserList()
+
+        if(users == null){
+
+            println "사용자가 없습니다"
+
+        } else {
+
+            users.each {user->
+                println user.name + "//" + user.phoneNum + "//" + user.address + "//" + user.content + "//" + user.gradeId.gradeName
+            }
+
+        }
+
+        key = EventUtil.keyEvent()
+        mainView()
+
+    }
+
 
     private void selectUserMenu(key){
 
         switch (key){
             case 1:
                 userAddView()
+                break
+            case 4:
+                userListView()
                 break
             default :
                 break
