@@ -30,7 +30,7 @@ class UserService {
         UserGrade userGrade = userGradeService.getUserGrade(2L)
         user.gradeId = userGrade
         userGrade.users.add(user)
-
+        user.status = "N"
         userDAO.save(user)
     }
 
@@ -44,7 +44,7 @@ class UserService {
      * @return
      */
     List<User> getUserList(){
-        List<User> users = userDAO.findAll()
+        List<User> users = userDAO.findAllByStatus("N")
         users
     }
 

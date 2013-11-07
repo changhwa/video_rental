@@ -6,6 +6,7 @@ CREATE TABLE Users (
   address varchar(100),
   phone_num varchar(20),
   content varchar(200),
+  status varchar(1),
   grade_id bigint
 ) ;
 
@@ -15,13 +16,13 @@ CREATE TABLE USER_GRADE(
 );
 
 INSERT INTO USERS
-VALUES (1,'관리자',22,'1','서울특별시','010-1111-1111','관리자입니다.',1);
+VALUES (1,'관리자',22,'1','서울특별시','010-1111-1111','관리자입니다.','N',1);
 INSERT INTO USERS
-VALUES (2,'홍길동',22,'1','대전광역시','010-1111-1111','길동입니다.',2);
+VALUES (2,'홍길동',22,'1','대전광역시','010-1111-1111','길동입니다.','N',2);
 INSERT INTO USERS
-VALUES (3,'홍순이',22,'2','서울특별시','010-1111-1111','순이입니다.',3);
+VALUES (3,'홍순이',22,'2','서울특별시','010-1111-1111','순이입니다.','N',3);
 INSERT INTO USERS
-VALUES (4,'길동이',22,'2','대전광역시','010-1111-1112','맨날 빌려가는 사람',3);
+VALUES (4,'길동이',22,'2','대전광역시','010-1111-1112','맨날 빌려가는 사람','N',3);
 
 INSERT INTO USER_GRADE
 VALUES (1, '관리자');

@@ -38,6 +38,9 @@ class User {
 
     String content
 
+    //N : 정상사용자 , D : 삭제사용자
+    String status
+
     @ManyToOne (optional = false)
     UserGrade gradeId
 

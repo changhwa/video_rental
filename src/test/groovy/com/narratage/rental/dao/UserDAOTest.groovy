@@ -62,21 +62,11 @@ class UserDAOTest {
         user.name = "이름"
         user.content = "테스트"
         user.phoneNum = "011-1111-1111"
+        user.status = "N"
 
         userDAO.save(user)
 
     }
 
-    @Test
-    public void delete(){
-
-        User user = userDAO.findOne(3L)
-
-        userDAO.delete(user)
-        List user2 = userDAO.findAll()
-
-        assertThat(user2.size(), is(3))
-
-    }
 
 }

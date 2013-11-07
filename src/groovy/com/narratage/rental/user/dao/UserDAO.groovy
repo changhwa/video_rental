@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository
 
 public interface UserDAO extends  JpaRepository<User, Long>{
 
+    List<User> findAllByStatus(String status)
     List<User> findByNameLike(String name)
     List<User> findByPhoneNum(String phoneNum)
 

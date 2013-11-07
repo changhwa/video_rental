@@ -74,7 +74,7 @@ class UserServiceTest {
         userList.add(sUser)
 
         //given
-        given(userDAO.findAll()).willReturn(userList)
+        given(userDAO.findAllByStatus("N")).willReturn(userList)
 
         //when
         List<User> users = userService.getUserList()
