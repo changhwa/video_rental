@@ -1,6 +1,7 @@
 package com.narratage.rental.user.view
 
 import com.narratage.rental.user.domain.User
+import com.narratage.rental.user.service.UserGradeService
 import com.narratage.rental.user.service.UserService
 import com.narratage.rental.util.EventUtil
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,6 +12,9 @@ class UserView {
 
     @Autowired
     UserService userService
+
+    @Autowired
+    UserGradeService userGradeService
 
 
     def key
@@ -121,6 +125,29 @@ class UserView {
 
     }
 
+    //TODO Refactoring
+    def bestGradeUserListView(){
+
+        List users = userGradeService.bestGradeUsers()
+
+        println "번호 // 이름 // 전화번호 // 주소 // 기타 // 등급"
+        if(users == null){
+
+            println "사용자가 없습니다"
+
+        } else {
+
+            users.each {user->
+                println user.id + "//" + user.name + "//" + user.phoneNum + "//" + user.address + "//" + user.content + "//" + user.gradeId.gradeName
+            }
+
+        }
+
+        key = EventUtil.keyEvent()
+        mainView()
+
+    }
+
 
     private void selectUserMenu(key){
 
@@ -133,6 +160,9 @@ class UserView {
                 break
             case 4:
                 userListView()
+                break
+            case 6:
+                bestGradeUserListView()
                 break
             default :
                 break
