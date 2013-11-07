@@ -105,9 +105,17 @@ class UserView {
     }
 
     def userDeleteView(){
-        print "삭제할 사용자 번호를 입력22 : "
+        print "삭제할 사용자 번호를 입력 : "
         key = EventUtil.keyEvent()
-        userService.deleteUser(key)
+        println ""
+
+        User user = userService.findByUserId(key)
+        if(user == null){
+            println "삭제할 사용자가 없습니다."
+        }else{
+            user = userService.deleteUser(user)
+            println "삭제되었습니다"
+        }
 
         userListView()
 

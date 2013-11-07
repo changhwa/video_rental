@@ -141,13 +141,13 @@ class UserServiceTest {
     public void deleteUser(){
 
         //given
-        Long id = sUser.id
+
 
         //when
-        userService.deleteUser(id)
+        userService.deleteUser(sUser)
 
         //then
-        verify(userDAO).delete(id)
+        verify(userDAO).delete(sUser)
 
     }
 
