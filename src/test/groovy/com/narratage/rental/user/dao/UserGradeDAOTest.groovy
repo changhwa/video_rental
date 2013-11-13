@@ -1,9 +1,7 @@
-package com.narratage.rental.dao
+package com.narratage.rental.user.dao
 
-import com.narratage.rental.user.dao.UserGradeDAO
 import com.narratage.rental.user.domain.User
 import com.narratage.rental.user.domain.UserGrade
-import org.hibernate.Hibernate
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
 import static org.junit.Assert.assertThat
-import static org.hamcrest.CoreMatchers.not
 import static org.hamcrest.CoreMatchers.is
 
 @RunWith(SpringJUnit4ClassRunner.class)

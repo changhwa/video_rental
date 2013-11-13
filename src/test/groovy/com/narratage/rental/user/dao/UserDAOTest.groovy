@@ -1,6 +1,5 @@
-package com.narratage.rental.dao
+package com.narratage.rental.user.dao
 
-import com.narratage.rental.user.dao.UserDAO
 import com.narratage.rental.user.domain.User
 import com.narratage.rental.user.domain.UserGrade
 import org.junit.Test
@@ -10,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
 import static org.junit.Assert.assertThat
-import static org.hamcrest.CoreMatchers.not
 import static org.hamcrest.CoreMatchers.is
 
 @RunWith(SpringJUnit4ClassRunner.class)

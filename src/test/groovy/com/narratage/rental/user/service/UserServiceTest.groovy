@@ -1,10 +1,8 @@
-package com.narratage.rental.service
+package com.narratage.rental.user.service
 
 
 import com.narratage.rental.user.dao.UserDAO
 import com.narratage.rental.user.domain.User
-import com.narratage.rental.user.service.UserService
-import junit.framework.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -12,7 +10,6 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 
-import static org.hamcrest.CoreMatchers.not
 import static org.mockito.BDDMockito.given
 import static org.mockito.Mockito.*;
 import static org.hamcrest.CoreMatchers.is;

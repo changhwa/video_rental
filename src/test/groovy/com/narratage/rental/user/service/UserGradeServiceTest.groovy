@@ -1,9 +1,8 @@
-package com.narratage.rental.service
+package com.narratage.rental.user.service
 
 import com.narratage.rental.user.dao.UserGradeDAO
 import com.narratage.rental.user.domain.User
 import com.narratage.rental.user.domain.UserGrade
-import com.narratage.rental.user.service.UserGradeService
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +12,6 @@ import org.mockito.runners.MockitoJUnitRunner
 
 import static org.hamcrest.CoreMatchers.notNullValue
 import static org.mockito.BDDMockito.given
-import static org.mockito.Mockito.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
