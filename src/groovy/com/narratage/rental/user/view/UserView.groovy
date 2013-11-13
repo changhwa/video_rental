@@ -148,6 +148,39 @@ class UserView {
 
     }
 
+    def userSearchView(){
+        println "1. 이름검색 // 2. 전화번호검색"
+        print " 입력> "
+        key = EventUtil.keyEvent()
+        List users
+        if(key==1){
+            print "이름을 입력해주세요 : "
+            key = EventUtil.keyEvent()
+            users = userService.findByUserName(key)
+        } else if(key==2){
+            print "전화번호르 입력해주세요 : "
+            key = EventUtil.keyEvent()
+            users = userService.findByUserPhoneNum(key)
+        }
+
+        println "번호 // 이름 // 전화번호 // 주소 // 기타 // 등급"
+        if(users == null){
+
+            println "사용자가 없습니다"
+
+        } else {
+
+            users.each {user->
+                println user.id + "//" + user.name + "//" + user.phoneNum + "//" + user.address + "//" + user.content + "//" + user.gradeId.gradeName
+            }
+
+        }
+
+        key = EventUtil.keyEvent()
+        mainView()
+
+    }
+
 
     private void selectUserMenu(key){
 
@@ -160,6 +193,9 @@ class UserView {
                 break
             case 4:
                 userListView()
+                break
+            case 5:
+                userSearchView()
                 break
             case 6:
                 bestGradeUserListView()
